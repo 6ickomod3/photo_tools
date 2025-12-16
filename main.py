@@ -12,10 +12,11 @@ def cli():
 @click.option('--output', '-o', default='output.mp4', help='Output video filename.')
 @click.option('--fps', '-f', default=30, help='Frames per second.')
 @click.option('--ext', '-e', default='*.jpg', help='Image file extension pattern (e.g., *.png).')
-def timelapse(input_dir, output, fps, ext):
+@click.option('--resolution', '-r', help='Target resolution (e.g., 1920x1080) or scale factor (e.g., 0.5).')
+def timelapse(input_dir, output, fps, ext, resolution):
     """Create a time-lapse video from a folder of images."""
     click.echo(f"Starting time-lapse creation from {input_dir}...")
-    make_timelapse(input_dir, output, fps, ext)
+    make_timelapse(input_dir, output, fps, ext, resolution)
 
 if __name__ == '__main__':
     cli()
